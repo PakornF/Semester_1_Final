@@ -4,7 +4,7 @@ class Coin:
         self.value = value
 
     def __str__(self):
-        return f"{self.value} Baht Coin."
+        return f"{self.value} Baht Coin"
 
     def get_value(self):
         return self.value
@@ -18,7 +18,7 @@ class BankNote:
         self.value = value
 
     def __str__(self):
-        return f"{self.value} Baht Banknote."
+        return f"{self.value} Baht Banknote"
 
     def get_value(self):
         return self.value
@@ -28,15 +28,14 @@ class BankNote:
 
 class CoinBankNoteApp:
     denominations = [BankNote(1000), BankNote(500), BankNote(100),
-                     BankNote(50), BankNote(20), Coin(1),
-                     Coin(2), Coin(5), Coin(10)]
+                     BankNote(50), BankNote(20), Coin(10),
+                     Coin(5), Coin(2), Coin(1)]
 
     amount = int(input("Input amount : "))
 
     for denom in denominations:
-        num = amount // denom.get_value()
-
+        value = denom.get_value()
+        num = amount // value
         if num > 0:
             print(f"You get {num} of {denom}")
-
-        amount -= num * denom.get_value()
+        amount -= num * value
